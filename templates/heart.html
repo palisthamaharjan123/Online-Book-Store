@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<section class="like" id="">
+    <div class="container">
+        {% comment %} <h1>Shopping cart</h1> {% endcomment %}
+        <div class="cart">
+            <div class="cbooks">
+                <div class="cbook">
+                    <div class="img" style="float: left">
+                    <a href="books.html"><img src="{% static 'website/imh/a.jpg' %}"></a>
+                    
+                </div>
+                    <div class="cbooks info">
+                        <h3 class="cbname">Palpasa Cafe</h3>
+                        <h2 class="cbauthor"><span>by Narayan Wagle,</span></h2>
+                        <h2 class="cbprice">rs 450</h2>
+                        {% comment %} <h2 class="product-offer">50%</h2> {% endcomment %}
+                        <p class="cbooks-remove">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <span class="remove">Remove From Likes</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cbook">
+                    <div class="img" style="float: left">
+                        <a href="booksB.html"><img src="{% static 'website/imh/b.jpg' %}"></a>
+                </div>
+                    <div class="cbooks info">
+                        <h3 class="cbname">Maha ko Ma</h3>
+                        <h2 class="cbauthor"><span>by Madankrisna Shrestha,</span></h2>
+                        <h2 class="cbprice">rs 450</h2>
+                        {% comment %} <h2 class="product-offer">50%</h2> {% endcomment %}
+                        
+                        <p class="cbooks-remove">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <span class="remove">Remove From Likes</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!--cart-->
+    {% endblock %}

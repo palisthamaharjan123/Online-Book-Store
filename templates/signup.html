@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+{% comment %}
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online book store</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css ">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}   ">
+    
+     <link rel="icon" href="{% static website/imh/icon.jpg' %} ">
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <div class="header-1">
+
+        <a href="#" class="logo"> <i class="fas fa-book"></i> bookly </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="heart.html" class="fas fa-heart"></a>
+            <a href="cart.html" class="fas fa-shopping-cart"></a>
+            <div id="login-btn" class="fas fa-user"></div>
+        </div>
+
+    </div>
+
+    <div class="header-2">
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#featured">featured</a>
+            <a href="#arrivals">arrivals</a>
+            <a href="#reviews">reviews</a>
+            <a href="#newsletter">request a book</a>
+           
+    </div>
+
+</header>
+
+<!-- header section ends -->
+ {% endcomment %}
+<!-- bottom navbar  -->
+
+{% comment %} <nav class="bottom-navbar">
+    <a href="#home" class="fas fa-home"></a>
+    <a href="#featured" class="fas fa-list"></a>
+    <a href="#arrivals" class="fas fa-tags"></a>
+    <a href="#reviews" class="fas fa-comments"></a>
+    <!--<a href="#newsletter" class="fab fa-bell-o"></a>-->
+    <a href="#newsletter" class="fab fa-bell-o"> <i class="fab fa-bell-o"></i></a>
+    
+</nav> {% endcomment %}
+
+<!-- login form  -->
+
+{% comment %} <div class="login-form-container">
+
+    <div id="close-login-btn" class="fas fa-times"></div>
+
+    <form action="{% url 'home' %}" method="post">
+         {% csrf_token %} 
+        <h3>welcome-{{ name }}</h3>
+        <span>username</span>
+        <input type="text" name="name" placeholder="enter your name" id="" class="box">
+        <span>email</span>
+        <input type="email" name="user-email" class="box" placeholder="enter your email" id="">
+        <span>password</span>
+        <input type="password" name="password" class="box" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="checkbox" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn">
+        <p>forget password ? <a href="#">click here</a></p>
+        <p>don't have an account ? <a href="signup.html">create one</a></p>
+    </form>
+
+</div> {% endcomment %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show position-absolute" role="alert" id="msg" style="position:absolute z-index:1;">
+    <strong style=" font-size:15px;">Message:{{message}}</strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-labels="Close">
+    <span aria-hidden="true">&times;</span>
+</div>
+{% endfor%} 
+
+<section class="signup" id="signup">
+    <div class="main-content">
+
+        <!-- You only need this form and the form-register.css -->
+
+        <form class="form-register" method="POST" action="signup.html">
+            {% csrf_token %}
+            <div class="form-register-with-email">
+
+                <div class="form-white-background">
+
+                    <div class="form-title-row">
+                        <h1>Create an account</h1>
+                    </div>
+                    
+                    {% comment %} <div class="form-row">
+                        <label>
+                            <span>UserName</span>
+                            <input type="text" name="Username" id="Username" placeholder="enter your name">
+                        </label>
+                    </div> {% endcomment %}
+                    <div class="form-row">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="cname" id="cname" placeholder="enter your name">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="cemail" id="cemail" placeholder="enter your email">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Password</span>
+                            <input type="password" name="cpassword"  id="cpassword" placeholder="enter your password">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            <span>ReType-Password</span>
+                            <input type="password" name="recpassword" id="recpassword" placeholder="Re Type your password">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            <span>Address</span>
+                            <input type="text" name="caddress" id="caddress" placeholder="enter your address">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            <span>Phone Number</span>
+                            <input type="number" name="cphone" id="cphone" placeholder="enter your phone number">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="checkbox" checked>
+                            <span>I agree to the <a href="#">terms and conditions</a></span>
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="submit">Register</button>
+                    </div>
+
+                </div>
+
+                <a href="signin.html" class="form-log-in-with-existing">Already have an account? Login here &rarr;</a>
+
+            </div>
+
+             <div class="form-sign-in-with-social">
+
+                <div class="form-row form-title-row">
+                    <span class="form-title">Sign in with</span>
+                </div>
+                
+                <a href="#" class="form-google-button"><i class="fa fa-google" aria-hidden="true"></i>Google</a>
+                <a href="#" class="form-facebook-button"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                <a href="#" class="form-twitter-button"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+
+            </div> 
+             {% comment %} <div class="share">
+        <a href="https://www.facebook.com/palista.mhrzn.3/" class="fab fa-facebook-f"></a>
+        
+        <a href="https://www.instagram.com/palisthamaharjan__/" class="fab fa-instagram"></a>
+        
+    </div> {% endcomment %}
+
+        </form>
+
+    </div>
+
+</section>
+{% comment %} </body>
+</html> {% endcomment %}
+{% endblock %}

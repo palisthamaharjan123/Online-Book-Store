@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<section class="books" id="books">
+            <div class="container">
+            {% comment %} <h1>Shopping cart</h1> {% endcomment %}
+            <div class="cart">
+                <div class="cbooks">
+                    <div class="cbook">
+                        <div class="img" style="float: left">
+                        <img src="{{books.image}}"><br/>
+                        <a  class="btn addtocart" data-action="add" data-book="{{books.id}}">add to cart</a>
+                    </div>
+                        <div class="cbooks info">
+                            <h3 class="cbname"><span>{{books.name}}</span></h3>
+                            <h2 class="cbauthor"><span>by {{books.author_id}},</span></h2> 
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <h2 class="cbprice">NPR.{{books.price}}</h2>
+                            
+                            {% comment %} <h2 class="cbooks-offer">50%</h2> {% endcomment %}
+                            <p class="cbooks-quantity">Summary</p>
+                            <div class="cart-total">
+                                <p>{{books.description}}</p>
+                            </p> 
+                              
+                                  {% comment %} <a href="#" class="btn">add to cart</a><br/> {% endcomment %}
+                        </div>
+                    </div>
+            
+            
+            
+                </div>
+        </div>
+    </section>
+            
+     
+    
+    </section>
+
+{% endblock %}

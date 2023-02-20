@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<section class="checkout" id="">
+    <div class="main-content">
+
+        <!-- You only need this form and the form-register.css -->
+
+        <form class="form-register" method="POST" action="{% url 'checkout' %}">
+            {% csrf_token %}
+            <div class="form-register-with-email">
+
+                <div class="form-white-background">
+
+                    <div class="form-title-row">
+                        <h1>Order Info</h1>
+                    </div>
+                    
+                    {% comment %} <div class="form-row">
+                        <label>
+                            <span>UserName</span>
+                            <input type="text" name="Username" id="Username" placeholder="enter your name">
+                        </label>
+                    </div> {% endcomment %}
+                 
+
+                   
+                    <div class="form-row">
+                        <label>
+                            <span>Shipping Address</span>
+                            <input type="text" name="saddress" id="saddress" placeholder="enter your address">
+                        </label>
+                    </div>
+                  
+                    <div class="form-row">
+                        <label>
+                            <span>Phone Number</span>
+                            <input type="number" name="sphone" id="sphone" placeholder="enter your phone number">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            <span>Another Phone Number</span>
+                            <input type="number" name="resphone" id="resphone" placeholder="enter your phone number">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label for="method">
+                            <span>payment method</span>
+                            <select name="smethod" id="smethod" placeholder="select a method">
+                                <option value="CashOnDelivery">Select a method</option>
+                            <option value="CashOnDelivery">Cash on delivery</option>
+                            </select>
+                           </label> 
+                        
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="checkbox" checked>
+                            <span>I agree to the <a href="#">terms and conditions</a></span>
+                        </label>
+                    </div>
+                  
+                    <div class="form-row">
+                        <button type="submit" data-book="{{books.id}}">Order</button>
+                    </div>
+
+                </div>
+
+                <a href="home.html" class="form-log-in-with-existing">Still want to browse?</a>
+
+            </div>
+            
+             <div class="form-sign-in-with-social">
+                <a href="cart.html" class="btn">View Order</a>
+                 {% comment %} <div class="form-row form-title-row">
+                    <span class="form-title">Total={{cart.get_cart_total}}</span><br><br/>
+                    <table border=1>
+                        <tbody>
+                            <tr>
+                              
+                              <th scope="col"><h3><strong>Item</strong></h3></th>
+                              <th scope="col"><h3><strong>Price</strong></h3></th>
+                              <th scope="col"><h3><strong>Quantity</strong></h3></th>
+                            </tr> 
+                          
+                          
+
+                             {% for item in cartitems %}
+                            <tr> 
+                               <th scope="row"><div id = "cart_image"><img src = {{item.book.image}}></div></th> 
+                              <td><h4>{{item.book.name}}</h3></td>
+                              <td><h4>{{item.book.price}}</h3></td>
+                              <td><input type = 'number' class = 'quantity' value = "{{item.quantity}}" style = 'width: 50px; padding-left: 5px'></td>
+                            </tr>
+                            {% endfor %}
+                             
+                            
+                          </tbody>
+                    </table>
+                </div>  {% endcomment %}
+
+                
+            </div> 
+              
+
+        </form>
+
+    </div>
+
+</section>
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,432 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+
+<!-- login form  -->
+
+<div class="login-form-container">
+
+    <div id="close-login-btn" class="fas fa-times"></div>
+
+</div> 
+</div>
+
+<!-- home section starts  -->
+ {% comment %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show position-absolute" role="alert" id="msg" style="position:absolute z-index:1;">
+    <strong>Message:</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-labels="Close">
+    <span aria-hidden="true">&times;</span>
+</div>
+{% endfor%}  {% endcomment %}
+
+
+
+<section class="home" id="home">
+
+    <div class="row">
+
+        <div class="content">
+            {% if user.is_authenticated %}
+                <h3>Welcome,{{request.user}}</h3>
+            {%else%}
+                <h3>Welcome!!</h3>
+            {%endif%}
+            <p>A book store is a treasure chest.Everytime you walk in one,you strike gold.</p>
+            <a href="#featured" class="btn">browse now</a>
+        </div>
+        
+        <div class="swiper books-slider">
+            
+            <div class="swiper-wrapper">
+                <a href="books.html" class="swiper-slide"><img src="{% static 'website/imh/a.jpg' %} " alt=""></a>
+                <a href="booksB.html" class="swiper-slide"><img src="{% static 'website/imh/b.jpg' %} " alt="maha ko ma"></a>
+                <a href="booksF.html" class="swiper-slide"><img src="{% static 'website/imh/f.jpg' %} " alt=""></a>
+                <a href="booksG.html" class="swiper-slide"><img src="{% static 'website/imh/g.jpg' %} " alt=""></a>
+                <a href="booksH.html" class="swiper-slide"><img src="{% static 'website/imh/h.jpg' %} " alt=""></a>
+                <a href="booksI.html" class="swiper-slide"><img src="{% static 'website/imh/i.jpg' %} " alt=""></a>
+            
+            </div>
+        
+            <img src="{% static 'website/image/stand.png' %} " class="stand" alt="">
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- home section ense  -->
+
+<!-- icons section starts  -->
+
+
+
+<!-- icons section ends -->
+
+<!-- featured section starts  -->
+
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span>featured books</span> </h1>
+    
+    <div class="swiper featured-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                  
+                    <a  class="fas fa-heart"></a>
+                    <a href="books.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/a.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Palpasa Cafe</h3>
+                    <div class="price">NPR.450</div>
+                    <a  class="btn addtocart" data-action="add" data-book=10>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksB.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/b.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Maha ko Ma</h3>
+                    <div class="price">NPR.580</div>
+                    <a  class="btn addtocart" data-action="add" data-book=2>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                   
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksF.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/f.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Palpasa Cafe</h3>
+                    <div class="price">NPR.500</div>
+                    <a  class="btn addtocart" data-action="add" data-book="">add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksG.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/g.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>The Fault In Our Stars</h3>
+                    <div class="price"> NPR.250</div>
+                    <a  class="btn addtocart" data-action="add" data-book=3>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksH.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/h.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Things We Never Got Over</h3>
+                    <div class="price">NPR.500</div>
+                    <a  class="btn addtocart" data-action="add" data-book=4>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksI.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/i.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>It ends With Us</h3>
+                    <div class="price">NPR.800</div>
+                    <a  class="btn addtocart" data-action="add" data-book=5>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksJ.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/j.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Game of Thrones</h3>
+                    <div class="price">NPR.1000</div>
+                    <a  class="btn addtocart" data-action="add" data-book=6>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksK.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/k.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Antarman Ko Yatra</h3>
+                    <div class="price">NPR.500</div>
+                    <a  class="btn addtocart" data-action="add" data-book=7>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksL.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/l.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Kara</h3>
+                    <div class="price">NPR.380</div>
+                    <a  class="btn addtocart" data-action="add" data-book=8>add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="icons">
+                    
+                    <a  class="fas fa-heart"></a>
+                    <a href="booksM.html" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'website/imh/m.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>The Climb</h3>
+                    <div class="price">NPR.560</div>
+                    <a  class="btn addtocart" data-action="add" data-book=9>add to cart</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- featured section ends -->
+
+<!-- request section starts -->
+
+<section class="newsletter" id="newsletter">
+    
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %} 
+        <h3>Request A Book</h3>
+        
+        <input type="text" name="rname" id="rname" placeholder="enter your name" class="box" id="rname">
+        <input type="text" name="bookrequest" placeholder="enter the book you want to request" id="bookrequest" class="box"> 
+        <input type="submit" value="Send" class="btn">
+       
+    </form>
+</a>
+
+</section>
+
+<!-- newsletter section ends -->
+
+<!-- arrivals section starts  -->
+
+<section class="arrivals" id="arrivals">
+
+    <h1 class="heading"> <span>new arrivals</span> </h1>
+
+    <div class="swiper arrivals-slider">
+
+        <div class="swiper-wrapper">
+
+            <a href="books.html" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/a.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Palpasa Cafe</h3>
+                    <div class="price">NPR.450</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+            
+
+            <a href="arrivals1.html" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/1.png' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Think And Grow Rich</h3>
+                    <div class="price">NPR.350</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="arrivals2.html" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/2.png' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>the power of your subconscious mind</h3>
+                    <div class="price">NPR.450</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/3.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Love yourself like your life depends on it</h3>
+                    <div class="price">NPR.500</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="arrivals4.html" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/4.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Home Body</h3>
+                    <div class="price">NPR.800</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="swiper arrivals-slider">
+
+        <div class="swiper-wrapper">
+
+
+            <a href="arrivals2.html" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/2.png' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>the power of your subconscious mind</h3>
+                    <div class="price">NPR.450</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/7.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>sirish ko phool</h3>
+                    <div class="price">NRP.250</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="{% static 'website/imh/8.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Karnali Blues</h3>
+                    <div class="price">NRP.450</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
